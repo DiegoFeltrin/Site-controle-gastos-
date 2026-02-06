@@ -23,6 +23,8 @@ def index():
     if request.method == "POST":
         nome = request.form["nome"]
         valor = request.form["valor"]
+    if ":" in nome:
+        return ""Esse caractere aí não rola 👀"
 
         with open("gastos.txt", "a") as arquivo:
             arquivo.write(f"{nome}:{valor}\n")
@@ -53,5 +55,6 @@ import os
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
+
 
 
