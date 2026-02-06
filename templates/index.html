@@ -1,0 +1,43 @@
+<div class="container"></div>
+    <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Controle Financeiro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h1> Controle Finaceiro</h1>
+
+<form method="POST">
+    <input type="text" name="nome" placeholder="Nome do gasto" required>
+    <input type="number" step="0.01" name="valor" placeholder="Valor (R$)" required>
+    <button type="submit">adicionar</button>
+</form>
+
+<h2>Gastos</h2>
+
+<table>
+    <tr>
+        <th>Descrição</th>
+        <th>Valor</th>
+        <th></th>
+    </tr>
+
+    {% for gasto in gastos %}
+    <tr>
+        <td>{{ gasto[0] }}</td>
+        <td>R$ {{ gasto[1] }}</td>
+        <td>
+            <a href="/delete/{{ loop.index0 }}">❌</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h3>Total: {{ total }}</h3>
+
+</body>
+</html>
+</div>
