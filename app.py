@@ -33,7 +33,7 @@ def index():
                 erro="Valeu a tentativa mas ':' não funciona por aqui"
             )
 
-       with open("gastos.txt", "a") as arquivo:
+        with open("gastos.txt", "a") as arquivo:
             arquivo.write(f"{nome}:{valor}\n")
 
         return redirect("/")
@@ -71,4 +71,5 @@ if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
     
+
 
