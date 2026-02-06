@@ -30,7 +30,7 @@ def index():
                 "index.html",
                 gastos=gastos,
                 total=total,
-                erro="Valeu a tentativa mas ':' não funciona por aqui"
+                erro="Boa tentativa mas ':' não passa aqui"
             )
 
         with open("gastos.txt", "a") as arquivo:
@@ -39,12 +39,6 @@ def index():
         return redirect("/")
 
     return render_template("index.html", gastos=gastos, total=total)
-
-
-        with open("gastos.txt", "a") as arquivo:
-            arquivo.write(f"{nome}:{valor}\n")
-
-        return redirect("/")
 
     gastos = ler_gastos()
     total = sum(valor for _, valor in gastos)
@@ -71,5 +65,6 @@ if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
     
+
 
 
